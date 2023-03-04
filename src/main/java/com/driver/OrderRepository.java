@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Repository
 public class OrderRepository {
 
-    Map<String,Order> orderDB;
-    Map<String,DeliveryPartner> deliveryPartnerDB;
-    Map<String,String> orderAssignedDB;
-    Map<String,List<String>> deliveryListDB;
+    Map<String,Order> orderDB = new HashMap<>();
+    Map<String,DeliveryPartner> deliveryPartnerDB = new HashMap<>();
+    Map<String,String> orderAssignedDB = new HashMap<>();
+    Map<String,List<String>> deliveryListDB = new HashMap<>();
+
     public void addOrder(Order order){
         orderDB.put(order.getId(),order);
     }
@@ -43,7 +44,7 @@ public class OrderRepository {
     }
 
     public int getOrderCountByPartnerId(String partnerId){
-        return deliveryPartnerDB.get(partnerId).getNumberOfOrders();
+        return deliveryListDB.get(partnerId).size();
     }
 
     public List<String> getOrdersByPartnerId(String partnerId){
