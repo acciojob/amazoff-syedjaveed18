@@ -123,11 +123,17 @@ import java.util.Map;
 @Repository
 public class OrderRepository {
 
-    Map<String,Order> ordersDb = new HashMap<>();
-    Map<String,DeliveryPartner> deliveryPartnersDb = new HashMap<>();
-    Map<String,String> orderPartnerDb = new HashMap<>();
-    Map<String, List<String>> partnerOrdersDb = new HashMap<>();
+    Map<String,Order> ordersDb;
+    Map<String,DeliveryPartner> deliveryPartnersDb;
+    Map<String,String> orderPartnerDb;
+    Map<String, List<String>> partnerOrdersDb;
 
+    public OrderRepository() {
+        ordersDb = new HashMap<>();
+        deliveryPartnersDb = new HashMap<>();
+        orderPartnerDb = new HashMap<>();
+        partnerOrdersDb = new HashMap<>();
+    }
     public void addOrder(Order order){
         ordersDb.put(order.getId(),order);
     }
